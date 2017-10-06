@@ -11,5 +11,7 @@ interface IBusiness_logic {
     void add_country (String name);
     void add_city (String name, int country_id);
     String[] get_countries ();
+    String[] get_countries (int id);
     String[] get_cities ();
+    String[] get_cities (int id);
 }
