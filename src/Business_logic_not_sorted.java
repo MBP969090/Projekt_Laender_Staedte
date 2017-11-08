@@ -11,7 +11,7 @@ public class Business_logic_not_sorted implements IBusiness_logic {
 	private City selected_town;
 
 	public Business_logic_not_sorted(IDatarepository datarepository) {
-		this.datarepository = get_datarepository();
+		this.datarepository = datarepository;
 		this.selected_country = null;
 		this.selected_town = null;
 	}
