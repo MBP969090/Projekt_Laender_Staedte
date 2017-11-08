@@ -27,7 +27,11 @@ public class SQL_Databasemanagement implements IDatarepository {
 
   @Override
   public ArrayList<Country> select_countries() {
-    return null;
+    ArrayList<Country> countries = new ArrayList<Country>();
+    countries.add(new Country(1, "Deutschland"));
+    countries.add(new Country(2, "Frankreich"));
+    countries.add(new Country(3, "Italien"));
+    return countries;
   }
 
   @Override
