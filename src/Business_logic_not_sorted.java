@@ -1,17 +1,18 @@
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * Created by Peter Ganzschow
  */
 public class Business_logic_not_sorted extends Abstract_business_logic {
-
+	
+	/**
+	 * Constructor
+	 * @param datarepository
+	 */
 	public Business_logic_not_sorted(IDatarepository datarepository){
 		super(datarepository);
 	}
-
+	
 	@Override
 	public ArrayList<Country> get_countries() {
 		ArrayList<Country> countries_from_database = get_datarepository().select_countries();

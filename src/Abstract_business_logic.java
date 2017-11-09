@@ -5,41 +5,85 @@ abstract public class Abstract_business_logic implements IBusiness_logic{
     private IDatarepository datarepository;
     private Country selected_country;
     private City selected_city;
-
+    
+    /**
+     * Constructor
+     */
     public Abstract_business_logic() {
-        this.datarepository = null;
-        this.selected_country = null;
-        this.selected_city = null;
+    	set_datarepository(null);
+        set_selected_city(null);
+        set_selected_country(null);
     }
-
+    
+    /**
+     * Constructor
+     * @param datarepository
+     */
     public Abstract_business_logic(IDatarepository datarepository) {
-        this.datarepository = datarepository;
-        this.selected_country = null;
-        this.selected_city = null;
+    	set_datarepository(datarepository);
+    	set_selected_city(null);
+    	set_selected_country(null);
     }
-
+    
+    /**
+     * get datarepository
+     * @return
+     * @throws NullPointerException
+     */
+    @Override
     public IDatarepository get_datarepository() throws NullPointerException {
         if(this.datarepository == null) {
             throw new NullPointerException("Kein Datarepository ausgewählt.");
         }
         return this.datarepository;
     }
-
+    
+    /**
+     * set datarepository
+     * @param datarepository
+     */
+    @Override
+    public void set_datarepository(IDatarepository datarepository) {
+        this.datarepository = datarepository;
+    }
+    
+    /**
+     * set selected_country
+     * @param country
+     */
+    @Override
     public void set_selected_country(Country country) {
         this.selected_country = country;
     }
-
+    
+    /**
+     * get selected_country
+     * @return Country_object
+     * @throws NullPointerException
+     */
+    @Override
     public Country get_selected_country() throws NullPointerException{
         if(this.selected_country == null) {
             throw new NullPointerException("Kein Land ausgewählt");
         }
         return this.selected_country;
     }
-
+    
+    /**
+     * set selected_city
+     * @param city
+     */
+    @Override
     public void set_selected_city(City city) {
         this.selected_city = city;
     }
-
+    
+    /**
+     * get selected_city
+     * @return City_object
+     * @throws NullPointerException
+     */
+    @Override
     public City get_selected_city() throws NullPointerException{
         if(this.selected_city == null) {
             throw new NullPointerException("Keine Stadt ausgewählt");

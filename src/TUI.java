@@ -5,19 +5,21 @@ import java.util.Scanner;
  */
 public class TUI {
 	private IBusiness_logic business_logic;
+	private Scanner scanner;
 	public TUI(IBusiness_logic business_logic) {
 		this.business_logic = business_logic;
+		scanner = new Scanner(System.in);
 		start();
 	}
 	
-	public IBusiness_logic get_business_logic() {
+	private IBusiness_logic get_business_logic() {
 		if(business_logic == null) {
 			throw new NullPointerException("Kein Fachkonzept gewählt");
 		}
 		return business_logic;
 	}
 	
-	public void start() {
+	private void start() {
 		print_menu();
 		boolean exited = false;
 		while(!exited) {
@@ -86,7 +88,6 @@ public class TUI {
 	
 	private int get_user_option() {
 		System.out.print("Bitte geben Sie eine Nummer ein: ");
-		Scanner scanner = new Scanner(System.in);
 		int option;
 		try {
 			option = Integer.parseInt(scanner.next());
@@ -144,7 +145,6 @@ public class TUI {
 			return;
 		}
 		System.out.println("Wie soll der neue Name heißen?");
-		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
 		get_business_logic().change_country_name(input);
 	}
@@ -163,14 +163,12 @@ public class TUI {
 			return;
 		}
 		System.out.println("Wie soll der neue Name heißen?");
-		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
 		get_business_logic().change_city_name(input);
 	}
 	
 	private void print_country_add_dialog() {
 		System.out.print("Bitte nennen sie den Namen für das neue Land: ");
-		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
 		get_business_logic().add_country(input);
 	}
@@ -184,7 +182,6 @@ public class TUI {
 			System.out.println(e.getMessage());
 		}
 		System.out.print("Bitte nennen sie den Namen für das die neue Stadt: ");
-		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
 		get_business_logic().add_city(input);
 	}
