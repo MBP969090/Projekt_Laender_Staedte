@@ -43,12 +43,22 @@ public class Test_database implements IDatarepository{
 
     @Override
     public City select_city(int city_id) {
-        return this.cities.get(city_id);
+        for(City city: this.cities) {
+            if(city.getCity_id() == city_id) {
+                return city;
+            }
+        }
+        throw new NullPointerException("Id ist nicht vorhanden");
     }
 
     @Override
     public Country select_country(int country_id) {
-        return this.countries.get(country_id);
+    	for(Country country: this.countries) {
+    	    if(country.getCountry_id() == country_id) {
+                return country;
+            }
+        }
+        throw new NullPointerException("Id ist nicht vorhanden");
     }
 
     @Override
@@ -63,21 +73,45 @@ public class Test_database implements IDatarepository{
 
     @Override
     public void update_city(String city_name, int city_id) {
-        this.cities.get(city_id).setCity_name(city_name);
+        for(City city: this.cities) {
+            if(city.getCity_id() == city_id) {
+                city.setCity_name(city_name);
+                return;
+            }
+        }
+        throw new NullPointerException("Id ist nicht vorhanden");
     }
 
     @Override
     public void update_country(String country_name, int country_id) {
-        this.countries.get(country_id).setCountry_name(country_name);
+        for(Country country: this.countries) {
+            if(country.getCountry_id() == country_id) {
+                country.setCountry_name(country_name);
+                return;
+            }
+        }
+        throw new NullPointerException("Id ist nicht vorhanden");
     }
 
     @Override
     public void delete_city(int city_id) {
-        this.cities.remove(city_id);
+    	for(int i = 0; i < cities.size(); i++) {
+    	    if(cities.get(i).getCity_id() == city_id) {
+    	        cities.remove(i);
+    	        return;
+            }
+        }
+        throw new NullPointerException("Id ist nicht vorhanden");
     }
 
     @Override
     public void delete_country(int country_id) {
-        this.countries.remove(country_id);
+        for(int i = 0; i < countries.size(); i++) {
+            if(countries.get(i).getCountry_id() == country_id) {
+                countries.remove(i);
+                return;
+            }
+        }
+        throw new NullPointerException("Id ist nicht vorhanden");
     }
 }

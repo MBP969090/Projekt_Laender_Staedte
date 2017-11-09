@@ -1,5 +1,6 @@
 import com.sun.javaws.exceptions.InvalidArgumentException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -12,32 +13,24 @@ public class Business_logic_not_sorted extends Abstract_business_logic {
 	}
 
 	@Override
-	public Country[] get_countries() {
+	public ArrayList<Country> get_countries() {
 		ArrayList<Country> countries_from_database = get_datarepository().select_countries();
-		Country[] countries = new Country[countries_from_database.size()];
-		for (int i = 0; i < countries.length; i++) {
-			countries[i] = countries_from_database.get(i);
+		ArrayList<Country> countries = new ArrayList<Country>();
+		for (Country country : countries_from_database) {
+			countries.add(country);
 		}
 		return countries;
 	}
 	
 	@Override
-	public Country[] get_countries(int id) {
-		return new Country[0];
-	}
-	
-	@Override
-	public City[] get_towns() {
+	public ArrayList<City> get_cities() {
 		ArrayList<City> cities_from_database = get_datarepository().select_cities();
-		City[] cities = new City[cities_from_database.size()];
-		for (int i = 0; i < cities.length; i++) {
-			cities[i] = cities_from_database.get(i);
+		ArrayList<City> cities = new ArrayList<City>();
+		for (City city: cities_from_database) {
+			if(city.getCountry_id() == this.get_selected_country().getCountry_id()) {
+				cities.add(city);
+			}
 		}
 		return cities;
-	}
-	
-	@Override
-	public City[] get_towns(int id) {
-		return new City[0];
 	}
 }
