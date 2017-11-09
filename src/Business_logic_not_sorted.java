@@ -7,6 +7,10 @@ import java.util.ArrayList;
  */
 public class Business_logic_not_sorted extends Abstract_business_logic {
 
+	public Business_logic_not_sorted(IDatarepository datarepository){
+		super(datarepository);
+	}
+
 	@Override
 	public Country[] get_countries() {
 		ArrayList<Country> countries_from_database = get_datarepository().select_countries();
