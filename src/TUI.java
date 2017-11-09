@@ -1,10 +1,3 @@
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
-import javax.sound.midi.SysexMessage;
-import java.io.Console;
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -58,7 +51,7 @@ public class TUI {
 					print_city_delete_dialog();
 					break;
 				case 9:
-					//build_all_list();
+					print_menu();
 					break;
 				default:
 					break;
@@ -102,7 +95,7 @@ public class TUI {
 	
 	private void print_country_list() {
 		String output = "";
-		for(Country country: business_logic.get_countries()) {
+		for(Country country: get_business_logic().get_countries()) {
 			output += "("+country.getCountry_id()+") "+country.getCountry_name()+"\n";
 		}
 		System.out.println(output);
@@ -113,11 +106,11 @@ public class TUI {
 		print_country_list();
 		System.out.println("Für welches Land wollen Sie die Städte sehen?");
 		try {
-			business_logic.read_country(get_user_option());
+			get_business_logic().read_country(get_user_option());
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		for(City city: business_logic.get_cities()) {
+		for(City city: get_business_logic().get_cities()) {
 			output += "("+city.getCity_id()+") "+city.getCity_name()+"\n";
 		}
 		System.out.println(output);
@@ -126,11 +119,11 @@ public class TUI {
 	private void print_city_list(int country_id) {
 		String output = "";
 		try {
-			business_logic.read_country(country_id);
+			get_business_logic().read_country(country_id);
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		for(City city: business_logic.get_cities()) {
+		for(City city: get_business_logic().get_cities()) {
 			output += "("+city.getCity_id()+") "+city.getCity_name()+"\n";
 		}
 		System.out.println(output);
@@ -141,7 +134,7 @@ public class TUI {
 		System.out.println("Welches Land wollen Sie bearbeiten?");
 		int country_id = get_user_option();
 		try {
-			business_logic.read_country(country_id);
+			get_business_logic().read_country(country_id);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return;
@@ -149,7 +142,7 @@ public class TUI {
 		System.out.println("Wie soll der neue Name heißen?");
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
-		business_logic.change_country_name(input);
+		get_business_logic().change_country_name(input);
 	}
 	
 	private void print_city_edit_dialog() {
@@ -157,10 +150,10 @@ public class TUI {
 		System.out.println("Für welches Land wollen Sie eine Stadt bearbeiten?");
 		int country_id = get_user_option();
 		try {
-			business_logic.read_country(country_id);
+			get_business_logic().read_country(country_id);
 			print_city_list(country_id);
 			System.out.println("Welche Stadt wollen Sie bearbeiten?");
-			business_logic.read_city(get_user_option());
+			get_business_logic().read_city(get_user_option());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return;
@@ -168,43 +161,43 @@ public class TUI {
 		System.out.println("Wie soll der neue Name heißen?");
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
-		business_logic.change_city_name(input);
+		get_business_logic().change_city_name(input);
 	}
 	
 	private void print_country_add_dialog() {
 		System.out.print("Bitte nennen sie den Namen für das neue Land: ");
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
-		business_logic.add_country(input);
+		get_business_logic().add_country(input);
 	}
 	
 	private void print_city_add_dialog() {
 		print_country_list();
 		System.out.println("Für welches Land wollen Sie eine Stadt hinzufügen?");
 		try {
-			business_logic.read_country(get_user_option());
+			get_business_logic().read_country(get_user_option());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		System.out.print("Bitte nennen sie den Namen für das die neue Stadt: ");
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
-		business_logic.add_city(input);
+		get_business_logic().add_city(input);
 	}
 	
 	private void print_country_delete_dialog() {
 		print_country_list();
 		System.out.println("Welches Land soll gelöscht werden?");
 		try {
-			business_logic.read_country(get_user_option());
-			for (City city : business_logic.get_cities()) {
-				business_logic.read_city(city.getCity_id());
-				business_logic.delete_city();
+			get_business_logic().read_country(get_user_option());
+			for (City city : get_business_logic().get_cities()) {
+				get_business_logic().read_city(city.getCity_id());
+				get_business_logic().delete_city();
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		business_logic.delete_country();
+		get_business_logic().delete_country();
 	}
 	
 	private void print_city_delete_dialog() {
@@ -212,11 +205,11 @@ public class TUI {
 		System.out.println("Für welches Land wollen Sie eine Stadt löschen?");
 		try {
 			int country_id = get_user_option();
-			business_logic.read_country(country_id);
+			get_business_logic().read_country(country_id);
 			print_city_list(country_id);
 			System.out.println("Welche Stadt soll gelöscht werden?");
-			business_logic.read_city(get_user_option());
-			business_logic.delete_city();
+			get_business_logic().read_city(get_user_option());
+			get_business_logic().delete_city();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
