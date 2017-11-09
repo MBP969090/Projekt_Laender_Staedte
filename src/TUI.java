@@ -21,40 +21,44 @@ public class TUI {
 		print_menu();
 		boolean exited = false;
 		while(!exited) {
-			switch (get_user_option()) {
-				case 0:
-					exited = true;
-					System.out.println("Bye");
-					break;
-				case 1:
-					print_country_list();
-					break;
-				case 2:
-					print_country_edit_dialog();
-					break;
-				case 3:
-					print_country_add_dialog();
-					break;
-				case 4:
-					print_country_delete_dialog();
-					break;
-				case 5:
-					print_city_list();
-					break;
-				case 6:
-					print_city_edit_dialog();
-					break;
-				case 7:
-					print_city_add_dialog();
-					break;
-				case 8:
-					print_city_delete_dialog();
-					break;
-				case 9:
-					print_menu();
-					break;
-				default:
-					break;
+			try {
+				switch (get_user_option()) {
+					case 0:
+						exited = true;
+						System.out.println("Bye");
+						break;
+					case 1:
+						print_country_list();
+						break;
+					case 2:
+						print_country_edit_dialog();
+						break;
+					case 3:
+						print_country_add_dialog();
+						break;
+					case 4:
+						print_country_delete_dialog();
+						break;
+					case 5:
+						print_city_list();
+						break;
+					case 6:
+						print_city_edit_dialog();
+						break;
+					case 7:
+						print_city_add_dialog();
+						break;
+					case 8:
+						print_city_delete_dialog();
+						break;
+					case 9:
+						print_menu();
+						break;
+					default:
+						break;
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
 			}
 		}
 	}

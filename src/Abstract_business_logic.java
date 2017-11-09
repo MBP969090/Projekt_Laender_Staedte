@@ -18,7 +18,7 @@ abstract public class Abstract_business_logic implements IBusiness_logic{
         this.selected_city = null;
     }
 
-    public IDatarepository get_datarepository() throws NullPointerException{
+    public IDatarepository get_datarepository() throws NullPointerException {
         if(this.datarepository == null) {
             throw new NullPointerException("Kein Datarepository ausgewählt.");
         }
