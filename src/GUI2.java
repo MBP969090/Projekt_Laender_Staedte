@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -8,6 +9,12 @@ import javafx.stage.Stage;
 
 public class GUI2 extends Application {
     private IBusiness_logic business_logic;
+    private JFXPanel panel = new JFXPanel();
+
+    public GUI2 () {
+
+    }
+    
     public GUI2 (IBusiness_logic business_logic) {
         this.business_logic = business_logic;
         launch();
