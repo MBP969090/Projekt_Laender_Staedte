@@ -12,19 +12,19 @@ public interface IDatarepository {
 
   ArrayList<Country> select_countries();
 
-  City select_city(Integer city_id);
+  City select_city(int city_id);
 
-  Country select_country(Integer country_id);
+  Country select_country(int country_id);
 
-  void insert_city(String city_name, Integer country_id);
+  void insert_city(String city_name, int country_id);
 
   void insert_country(String country_name);
 
-  void update_city(String city_name, Integer city_id);
+  void update_city(String city_name, int city_id);
 
-  void update_country(String country_name, Integer country_id);
+  void update_country(String country_name, int country_id);
 
-  void delete_city(Integer city_id);
+  void delete_city(int city_id);
 
-  void delete_country(Integer country_id);
+  void delete_country(int country_id);
 }

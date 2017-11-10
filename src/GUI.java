@@ -17,12 +17,8 @@ public class GUI {
         projectJFrame.setResizable(false);
 
 //linke Seite
-        Country[] countries = gui.business_logic.get_countries();
-        String comboBoxListeCountry[] = new String[countries.length];
-        for(int i = 0; i < countries.length; i++) {
-            comboBoxListeCountry[i] = countries[i].getCountry_name();
-        }
 
+		String[] comboBoxListeCountry = {};
         JComboBox countryChooser = new JComboBox(comboBoxListeCountry);
         JLabel countryLabel = new JLabel("Land");
 
