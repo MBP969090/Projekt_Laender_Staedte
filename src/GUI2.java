@@ -8,6 +8,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class GUI2 extends Application {
     private IBusiness_logic business_logic;
     private JFXPanel panel = new JFXPanel();
@@ -40,7 +43,14 @@ public class GUI2 extends Application {
         Scene scene = new Scene(new Group(), 450, 250);
 
         final ComboBox countryComboBox = new ComboBox();
-        countryComboBox.getItems().addAll("Deutschland", "United States");
+        ArrayList<Country> countries = business_logic.get_countries();
+        String[] country_elements = new String[countries.size()];
+        int i = 0;
+        for(Country country: countries) {
+            country_elements[i] = country.getCountry_name();
+            i++;
+        }
+        countryComboBox.getItems().addAll(country_elements);
 
         TextField countryTextField = new TextField ();
         countryTextField.setPrefWidth(60);
@@ -50,7 +60,18 @@ public class GUI2 extends Application {
         deleteCountryButton.setPrefWidth(110);
 
         final ComboBox cityComboBox = new ComboBox();
-        cityComboBox.getItems().addAll("Miami", "Los Angeles");
+        try {
+            ArrayList<City> cities = business_logic.get_cities();
+            String[] city_elements = new String[cities.size()];
+            i = 0;
+            for (City city : cities) {
+                city_elements[i] = city.getCity_name();
+                i++;
+            }
+            cityComboBox.getItems().addAll(city_elements);
+        } catch (Exception e) {
+            
+        }
 
         TextField cityTextField = new TextField ();
         cityTextField.setPrefWidth(60);
