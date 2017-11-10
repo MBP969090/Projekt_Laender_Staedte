@@ -7,12 +7,6 @@ import com.sun.javaws.exceptions.InvalidArgumentException;
  */
 public class Project_Countries_Cities {
   public static void main (String[] args) {
-    IBusiness_logic blns = new Business_logic_not_sorted(new SQL_Databasemanagement());
-    try {
-      blns.read_country(1);
-    } catch (Exception e) {
-      System.out.print(e.getStackTrace());
-    }
-    blns.change_country_name("HAMBURG");
+  GUI2 gui = new GUI2(new Business_logic_not_sorted(new Test_database));
   }
 }

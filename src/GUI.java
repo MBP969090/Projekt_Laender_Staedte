@@ -76,7 +76,6 @@ public class GUI {
         deleteTownButton.setBounds(300, 216, 140, 20);
 
 
-        /*https://www.java-tutorial.org/jcombobox.html*/
         projectJFrame.add(panel);
         projectJFrame.setVisible(true);
     }
