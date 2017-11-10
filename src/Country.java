@@ -1,7 +1,9 @@
+import java.util.Comparator;
+
 /**
  * Created by bf on 06.10.17.
  */
-public class Country {
+public class Country implements Comparator<Country>{
   private int country_id;
   private String country_name;
 
@@ -24,5 +26,10 @@ public class Country {
 
   public void setCountry_name(String country_name) {
     this.country_name = country_name;
+  }
+
+  @Override
+  public int compare(Country o1, Country o2) {
+    return 0;
   }
 }
