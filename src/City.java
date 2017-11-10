@@ -1,7 +1,9 @@
+import java.util.Comparator;
+
 /**
  * Created by bf on 06.10.17.
  */
-public class City{
+public class City implements Comparable<City>{
   private int city_id;
   private String city_name;
   private int country_id;
@@ -35,5 +37,10 @@ public class City{
 
   public void setCountry_id(int country_id) {
     this.country_id = country_id;
+  }
+
+  @Override
+  public int compareTo(City o1) {
+    return this.getCity_name().compareTo(o1.getCity_name());
   }
 }

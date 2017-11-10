@@ -9,9 +9,9 @@ public class Test_database implements IDatarepository{
     int countries_index = 0;
 
     public Test_database(){
-        Country germany = new Country(1, "Deutschland");
-        Country italien = new Country( 2, "Italien");
-        Country spanien = new Country(3, "Spanien");
+        Country germany = new Country(1, "Spanien");
+        Country italien = new Country( 2, "USA");
+        Country spanien = new Country(3, "Deutschland");
 
         this.countries = new ArrayList<Country>();
         countries.add(germany);
@@ -19,10 +19,10 @@ public class Test_database implements IDatarepository{
         countries.add(spanien);
         countries_index = 4;
 
-        City berlin = new City(1, "Berlin", 1);
-        City munich = new City(2, "München", 1);
-        City rom = new City(3, "Rom", 2);
-        City madrid = new City(4, "Madrid", 3);
+        City berlin = new City(1, "Berlin", 3);
+        City munich = new City(2, "München", 3);
+        City rom = new City(3, "Los Angeles", 2);
+        City madrid = new City(4, "Madrid", 1);
 
         this.cities = new ArrayList<City>();
         cities.add(berlin);
