@@ -6,18 +6,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
 
 public class GUI2 extends Application {
     private IBusiness_logic business_logic;
     private JFXPanel panel = new JFXPanel();
 
     public GUI2 () {
-
+        this.business_logic = new Business_logic_not_sorted(new Test_database());
     }
-    
+
     public GUI2 (IBusiness_logic business_logic) {
+        Application.launch();
+    }
+
+    public void setBusiness_logic(IBusiness_logic business_logic) {
         this.business_logic = business_logic;
-        launch();
     }
 
     final Button editCountryButton = new Button ("Bearbeiten");
