@@ -113,6 +113,12 @@ abstract public class Abstract_business_logic implements IBusiness_logic{
 
     @Override
     public void delete_country() {
+        for(City city: get_cities()) {
+            if(city.getCountry_id() == get_selected_country().getCountry_id()) {
+                read_city(city.getCity_id());
+                delete_city();
+            }
+        }
         get_datarepository().delete_country(get_selected_country().getCountry_id());
     }
 

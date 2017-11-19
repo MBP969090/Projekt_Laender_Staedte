@@ -1,7 +1,9 @@
+import java.util.Comparator;
+
 /**
  * Created by bf on 06.10.17.
  */
-public class Country {
+public class Country implements Comparable<Country>{
   private int country_id;
   private String country_name;
 
@@ -24,5 +26,10 @@ public class Country {
 
   public void setCountry_name(String country_name) {
     this.country_name = country_name;
+  }
+
+  @Override
+  public int compareTo(Country o1) {
+    return this.getCountry_name().compareTo(o1.getCountry_name());
   }
 }
