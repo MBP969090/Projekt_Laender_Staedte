@@ -103,6 +103,7 @@ public class GUI2 extends Application {
 					business_logic.read_country(newValue.getCountry_id());
 					fill_city_list();
 					countryTextField.setText(business_logic.get_selected_country().getCountry_name());
+					cityTextField.clear();
 				} catch (Exception e) {
 					errors.setText(e.getMessage());
 				}

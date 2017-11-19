@@ -63,16 +63,25 @@ public class Test_database implements IDatarepository{
 
     @Override
     public void insert_city(String city_name, int country_id) {
+        if(city_name.isEmpty()) {
+            throw new NullPointerException("Name ist leer");
+        }
         this.cities.add(new City(cities_index++, city_name, country_id));
     }
 
     @Override
     public void insert_country(String country_name) {
+        if(country_name.isEmpty()) {
+            throw new NullPointerException("Name ist leer");
+        }
         this.countries.add(new Country(countries_index++, country_name));
     }
 
     @Override
     public void update_city(String city_name, int city_id) {
+        if(city_name.isEmpty()) {
+            throw new NullPointerException("Name ist leer");
+        }
         for(City city: this.cities) {
             if(city.getCity_id() == city_id) {
                 city.setCity_name(city_name);
@@ -84,6 +93,9 @@ public class Test_database implements IDatarepository{
 
     @Override
     public void update_country(String country_name, int country_id) {
+        if(country_name.isEmpty()) {
+            throw new NullPointerException("Name ist leer");
+        }
         for(Country country: this.countries) {
             if(country.getCountry_id() == country_id) {
                 country.setCountry_name(country_name);
