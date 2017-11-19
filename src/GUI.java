@@ -8,7 +8,7 @@ public class GUI {
     }
     public static void main(String[] args)
     {
-        GUI gui = new GUI(new Business_logic_not_sorted(new SQL_Databasemanagement()));
+        GUI gui = new GUI(new Business_logic_not_sorted(new Test_database()));
 
         JFrame projectJFrame = new JFrame();
         projectJFrame.setTitle("Project Länder - Städte");
