@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -14,7 +15,6 @@ import javafx.stage.Stage;
 
 public class GUI2 extends Application {
     private IBusiness_logic business_logic;
-    private JFXPanel panel = new JFXPanel();
 
     public GUI2 () {
         this.business_logic = new Business_logic_sorted(new Test_database());
@@ -50,48 +50,30 @@ public class GUI2 extends Application {
         cityTextField.setPrefWidth(60);
 	
 		editCountryButton.setPrefWidth(110);
-		editCountryButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				edit_country();
-			}
+		editCountryButton.setOnMouseClicked((MouseEvent event) -> {
+			edit_country();
 		});
 		addCountryButton.setPrefWidth(110);
-		addCountryButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				add_country();
-			}
+		addCountryButton.setOnMouseClicked((MouseEvent event) -> {
+			add_country();
 		});
 		deleteCountryButton.setPrefWidth(110);
-		deleteCountryButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				delete_country();
-			}
+		deleteCountryButton.setOnMouseClicked((MouseEvent event) -> {
+			delete_country();
 		});
 	
 	
 		editCityButton.setPrefWidth(110);
-		editCityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				edit_city();
-			}
+		editCityButton.setOnMouseClicked((MouseEvent event) -> {
+			edit_city();
 		});
 		addCityButton.setPrefWidth(110);
-		addCityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				add_city();
-			}
+		addCityButton.setOnMouseClicked((MouseEvent event) -> {
+			add_city();
 		});
 		deleteCityButton.setPrefWidth(110);
-		deleteCityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				delete_city();
-			}
+		deleteCityButton.setOnMouseClicked((MouseEvent event) -> {
+			delete_city();
 		});
 		
 		countryComboBox.setPrefHeight(150);
