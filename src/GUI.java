@@ -1,3 +1,4 @@
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -10,20 +11,43 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.util.List;
+import java.util.Map;
+
 
 public class GUI extends Application {
     private IBusiness_logic business_logic;
+    private JFXPanel panel = new JFXPanel();
 
     public GUI() {
-        this.business_logic = new Business_logic_sorted(new Test_database());
+    	
     }
 
     public GUI(IBusiness_logic business_logic) {
-		JFXPanel panel = new JFXPanel();
-		this.business_logic = business_logic;
-        Application.launch();
+        Application.launch(business_logic.getClass().toString(), business_logic.get_datarepository().getClass().toString());
     }
-
+    
+    public void init() {
+    	Parameters p = getParameters();
+    	IDatarepository datarepository;
+    	
+    	String datarepo = p.getRaw().get(1);
+    	String business = p.getRaw().get(0);
+    	if(datarepo.equals("class Test_database")) {
+    		datarepository = new Test_database();
+		} else if(datarepo.equals("class SQL_Databasemanagement")) {
+			datarepository = new SQL_Databasemanagement();
+		} else {
+    		datarepository = null;
+		}
+		System.out.print(p.getRaw().get(1).getClass());
+    	if(p.getRaw().get(0) == "class Business_logic_sorted") {
+    		this.business_logic = new Business_logic_sorted(datarepository);
+		} else {
+    		this.business_logic = new Business_logic_not_sorted(datarepository);
+		}
+	}
+    
     public void setBusiness_logic(IBusiness_logic business_logic) {
         this.business_logic = business_logic;
     }
