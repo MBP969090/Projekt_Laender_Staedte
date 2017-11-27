@@ -40,7 +40,6 @@ public class GUI extends Application {
 		} else {
     		datarepository = null;
 		}
-		System.out.print(p.getRaw().get(1).getClass());
     	if(business.equals("class Business_logic_sorted")) {
     		this.business_logic = new Business_logic_sorted(datarepository);
 		} else {

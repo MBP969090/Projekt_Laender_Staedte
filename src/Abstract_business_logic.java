@@ -120,11 +120,14 @@ abstract public class Abstract_business_logic implements IBusiness_logic{
             }
         }
         get_datarepository().delete_country(get_selected_country().getCountry_id());
+        set_selected_city(null);
+        set_selected_country(null);
     }
 
     @Override
     public void delete_city() throws NullPointerException{
         get_datarepository().delete_city(get_selected_city().getCity_id());
+        set_selected_city(null);
     }
 
     @Override
