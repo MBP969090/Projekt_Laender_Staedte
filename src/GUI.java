@@ -69,38 +69,38 @@ public class GUI extends Application {
         Scene scene = new Scene(new Group(), 450, 250);
         fill_country_list();
 
-        countryTextField.setPrefWidth(60);
-        cityTextField.setPrefWidth(60);
+        countryTextField.setPrefWidth(150);
+        cityTextField.setPrefWidth(150);
 	
-		editCountryButton.setPrefWidth(110);
+		editCountryButton.setPrefWidth(150);
 		editCountryButton.setOnMouseClicked((MouseEvent event) -> {
 			edit_country();
 		});
-		addCountryButton.setPrefWidth(110);
+		addCountryButton.setPrefWidth(150);
 		addCountryButton.setOnMouseClicked((MouseEvent event) -> {
 			add_country();
 		});
-		deleteCountryButton.setPrefWidth(110);
+		deleteCountryButton.setPrefWidth(150);
 		deleteCountryButton.setOnMouseClicked((MouseEvent event) -> {
 			delete_country();
 		});
 	
 	
-		editCityButton.setPrefWidth(110);
+		editCityButton.setPrefWidth(150);
 		editCityButton.setOnMouseClicked((MouseEvent event) -> {
 			edit_city();
 		});
-		addCityButton.setPrefWidth(110);
+		addCityButton.setPrefWidth(150);
 		addCityButton.setOnMouseClicked((MouseEvent event) -> {
 			add_city();
 		});
-		deleteCityButton.setPrefWidth(110);
+		deleteCityButton.setPrefWidth(150);
 		deleteCityButton.setOnMouseClicked((MouseEvent event) -> {
 			delete_city();
 		});
 		
 		countryComboBox.setPrefHeight(150);
-		countryComboBox.setPrefWidth(60);
+		countryComboBox.setPrefWidth(150);
 		countryComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Country>() {
 			@Override
 			public void changed(ObservableValue observable, Country oldValue, Country newValue) {
@@ -116,7 +116,7 @@ public class GUI extends Application {
 		});
 	
 		cityComboBox.setPrefHeight(150);
-		cityComboBox.setPrefWidth(60);
+		cityComboBox.setPrefWidth(150);
 		cityComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<City>() {
 			@Override
 			public void changed(ObservableValue observable, City oldValue, City newValue) {
@@ -155,8 +155,8 @@ public class GUI extends Application {
 		Group root = (Group)scene.getRoot();
 		root.getChildren().add(grid);
 		stage.setScene(scene);
-		stage.setHeight(500);
-		stage.setWidth(500);
+		stage.setHeight(390);
+		stage.setWidth(366);
 		stage.show();
 	}
 	
