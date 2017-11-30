@@ -9,11 +9,12 @@ public class Test_database implements IDatarepository{
     int countries_index = 0;
 
     public Test_database(){
-        Country germany = new Country(1, "Spanien");
+        /*Country germany = new Country(1, "Spanien");
         Country italien = new Country( 2, "USA");
-        Country spanien = new Country(3, "Deutschland");
+        Country spanien = new Country(3, "Deutschland"); */
 
         this.countries = new ArrayList<Country>();
+        /*
         countries.add(germany);
         countries.add(italien);
         countries.add(spanien);
@@ -23,13 +24,15 @@ public class Test_database implements IDatarepository{
         City munich = new City(2, "München", 3);
         City rom = new City(3, "Los Angeles", 2);
         City madrid = new City(4, "Madrid", 1);
+        */
 
         this.cities = new ArrayList<City>();
+        /*
         cities.add(berlin);
         cities.add(munich);
         cities.add(rom);
         cities.add(madrid);
-        cities_index = 5;
+        cities_index = 5;*/
     }
     @Override
     public ArrayList<City> select_cities() {

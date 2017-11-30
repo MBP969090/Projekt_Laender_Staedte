@@ -7,19 +7,40 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Business_logic_sortedTest {
     Business_logic_sorted b;
+    Test_database data;
     @BeforeEach
     void setUp() {
-        b = new Business_logic_sorted(new Test_database());
+        data = new Test_database();
+        b = new Business_logic_sorted(data);
     }
 
     @Test
     void get_countries() {
         ArrayList<Country> countries = b.get_countries();
+        assertEquals(0, countries.size());
+
+        data.insert_country("Deutschland");
+        countries = b.get_countries();
         assertEquals("Deutschland", countries.get(0).getCountry_name());
+        assertEquals(0, countries.get(0).getCountry_id());
+
+        data.insert_country("Armenien");
+        countries = b.get_countries();
+        assertEquals("Deutschland", countries.get(1).getCountry_name());
+        assertEquals(0, countries.get(1).getCountry_id());
+        assertEquals("Armenien", countries.get(0).getCountry_name());
+        assertEquals(1, countries.get(0).getCountry_id());
     }
 
     @Test
     void get_cities() {
+        //ArrayList<City> cities = b.get_cities();
+        //assertEquals(0, cities.size());
+
+        // data.insert_city("Berlin", 0);
+        assertThrows(NullPointerException.class, () -> {
+            b.get_cities();
+        });
     }
 
     @Test

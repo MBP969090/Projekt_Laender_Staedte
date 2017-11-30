@@ -25,12 +25,12 @@ public class Business_logic_sorted extends Abstract_business_logic {
 	public ArrayList<City> get_cities() {
 		ArrayList<City> cities = get_datarepository().select_cities();
 		Collections.sort(cities);
-		ArrayList<City> sorted_cites = new ArrayList<City>();
+		ArrayList<City> sorted_cities = new ArrayList<City>();
 		for(City city: cities) {
 			if(city.getCountry_id() == get_selected_country().getCountry_id()) {
-				sorted_cites.add(city);
+				sorted_cities.add(city);
 			}
 		}
-		return sorted_cites;
+		return sorted_cities;
 	}
 }
