@@ -1,4 +1,3 @@
-import com.sun.xml.internal.bind.v0.model.core.ID;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -136,7 +135,7 @@ public class GUI extends Application {
 		GridPane grid = new GridPane();
 		grid.setVgap(10);
 		grid.setHgap(10);
-		grid.setPadding(new Insets(10, 15, 10, 15                                      ));
+		grid.setPadding(new Insets(10, 15, 10, 15));
 		grid.add(new Label("Länder"), 0, 0);
 		grid.add(countryComboBox, 0, 1);
 		grid.add(countryTextField, 0, 2);
