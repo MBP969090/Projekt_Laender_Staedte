@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class GUI extends Application {
+public class GUI extends Application implements UI{
     private IBusiness_logic business_logic;
     private JFXPanel panel = new JFXPanel();
 
@@ -37,6 +37,8 @@ public class GUI extends Application {
     		datarepository = new Test_database();
 		} else if(datarepo.equals("class SQL_Databasemanagement")) {
 			datarepository = new SQL_Databasemanagement();
+		} else if(datarepo.equals("class MongoDB_Databasemanagement")) {
+			// datarepository = new MongoDB_Databasemanagement();
 		} else {
     		datarepository = null;
 		}

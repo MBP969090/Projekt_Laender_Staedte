@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Peter on 09.11.2017.
  */
-public class TUI {
+public class TUI implements UI{
 	private IBusiness_logic business_logic;
 	private Scanner scanner;
 	public TUI(IBusiness_logic business_logic) {
