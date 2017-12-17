@@ -5,6 +5,6 @@
  */
 public class Project_Countries_Cities {
   public static void main (String[] args) {
-    SQL_Databasemanagement test = new SQL_Databasemanagement();
+    MongoDB_Databasemanagement test = new MongoDB_Databasemanagement();
   }
 }
