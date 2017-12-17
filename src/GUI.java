@@ -1,4 +1,4 @@
-import com.sun.xml.internal.bind.v2.model.core.ID;
+import com.sun.xml.internal.bind.v0.model.core.ID;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,43 +15,45 @@ import java.util.List;
 import java.util.Map;
 
 
-public class GUI extends Application implements UI{
-    private IBusiness_logic business_logic;
-    private JFXPanel panel = new JFXPanel();
+public class GUI extends Application {
 
-    public GUI() {
-    	
-    }
+  private IBusiness_logic business_logic;
+  private JFXPanel panel = new JFXPanel();
 
-    public GUI(IBusiness_logic business_logic) {
-        Application.launch(business_logic.getClass().toString(), business_logic.get_datarepository().getClass().toString());
+  public GUI() {
+
+  }
+
+  public GUI(IBusiness_logic business_logic) {
+    Application.launch(business_logic.getClass().toString(),
+        business_logic.get_datarepository().getClass().toString());
+  }
+
+  public void init() {
+    Parameters p = getParameters();
+    IDatarepository datarepository;
+
+    String datarepo = p.getRaw().get(1);
+    String business = p.getRaw().get(0);
+    if (datarepo.equals("class Test_database")) {
+      datarepository = new Test_database();
+    } else if (datarepo.equals("class SQL_Databasemanagement")) {
+      datarepository = new SQL_Databasemanagement();
+    } else if (datarepo.equals("class MongoDB_Databasemanagement")) {
+      datarepository = new MongoDB_Databasemanagement();
+    } else {
+      datarepository = null;
     }
-    
-    public void init() {
-    	Parameters p = getParameters();
-    	IDatarepository datarepository;
-    	
-    	String datarepo = p.getRaw().get(1);
-    	String business = p.getRaw().get(0);
-    	if(datarepo.equals("class Test_database")) {
-    		datarepository = new Test_database();
-		} else if(datarepo.equals("class SQL_Databasemanagement")) {
-			datarepository = new SQL_Databasemanagement();
-		} else if(datarepo.equals("class MongoDB_Databasemanagement")) {
-			// datarepository = new MongoDB_Databasemanagement();
-		} else {
-    		datarepository = null;
-		}
-    	if(business.equals("class Business_logic_sorted")) {
-    		this.business_logic = new Business_logic_sorted(datarepository);
-		} else {
-    		this.business_logic = new Business_logic_not_sorted(datarepository);
-		}
-	}
-    
-    public void setBusiness_logic(IBusiness_logic business_logic) {
-        this.business_logic = business_logic;
+    if (business.equals("class Business_logic_sorted")) {
+      this.business_logic = new Business_logic_sorted(datarepository);
+    } else {
+      this.business_logic = new Business_logic_not_sorted(datarepository);
     }
+  }
+
+  public void setBusiness_logic(IBusiness_logic business_logic) {
+    this.business_logic = business_logic;
+  }
 
     private final Button editCountryButton = new Button ("Bearbeiten");
     private final Button addCountryButton = new Button ("Hinzufügen");
