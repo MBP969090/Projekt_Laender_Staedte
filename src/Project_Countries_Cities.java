@@ -5,7 +5,7 @@
  */
 public class Project_Countries_Cities {
   public static void main(String[] args) {
-    // TUI tui = new TUI(new Business_logic_sorted(new Test_database()));
+    //TUI tui = new TUI(new Business_logic_sorted(new MongoDB_Databasemanagement()));
     GUI gui = new GUI(new Business_logic_sorted(new MongoDB_Databasemanagement()));
   }
 }

@@ -13,8 +13,6 @@ import org.bson.Document;
  * mongo -> starten der Shell
  */
 
-
-
 public class MongoDB_Databasemanagement implements IDatarepository {
   MongoClient mongo;
   MongoDatabase database;
@@ -136,7 +134,7 @@ public class MongoDB_Databasemanagement implements IDatarepository {
       whereQuery.put("_id_city", city_id);
       BasicDBObject singleBson = new BasicDBObject();
       singleBson.append("$set", new BasicDBObject().append("city_name", city_name));
-      this.country_collection.updateOne(whereQuery, singleBson);
+      this.city_collection.updateOne(whereQuery, singleBson);
     }catch (MongoException mongoe) {
       mongoe.printStackTrace();
     }
@@ -171,7 +169,7 @@ public class MongoDB_Databasemanagement implements IDatarepository {
     try {
       BasicDBObject whereQuery = new BasicDBObject();
       whereQuery.put("_id_country", country_id);
-      this.city_collection.deleteOne(whereQuery);
+      this.country_collection.deleteOne(whereQuery);
     } catch (MongoException mongoe) {
       mongoe.printStackTrace();
     }
