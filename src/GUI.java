@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class GUI extends Application {
+public class GUI extends Application implements UI{
 
   private IBusiness_logic business_logic;
   private JFXPanel panel = new JFXPanel();
