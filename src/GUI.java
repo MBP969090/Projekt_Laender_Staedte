@@ -13,10 +13,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.util.List;
-import java.util.Map;
-
-
 
 public class GUI extends Application implements UI{
 
