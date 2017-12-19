@@ -11,9 +11,6 @@ public class Database_class_factory {
 			case "MongoDB_Databasemanagement":
 				program = new MongoDB_Databasemanagement();
 				break;
-			case "Test_database":
-				program = new Test_database();
-				break;
 			default:
 				program = null;
 				break;
