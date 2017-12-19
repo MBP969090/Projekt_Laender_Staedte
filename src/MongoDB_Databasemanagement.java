@@ -14,11 +14,11 @@ import org.bson.Document;
  */
 
 public class MongoDB_Databasemanagement implements IDatarepository {
-  MongoClient mongo;
-  MongoDatabase database;
-  MongoCollection<Document> country_collection;
-  MongoCollection<Document> city_collection;
-  MongoCollection<Document> counters_collection;
+  private MongoClient mongo;
+  private MongoDatabase database;
+  private MongoCollection<Document> country_collection;
+  private MongoCollection<Document> city_collection;
+  private MongoCollection<Document> counters_collection;
 
   public MongoDB_Databasemanagement() {
     connect_to_database();
@@ -175,7 +175,7 @@ public class MongoDB_Databasemanagement implements IDatarepository {
     }
   }
 
-  public int select_city_counter(){
+  private int select_city_counter(){
     try {
       BasicDBObject whereQuery = new BasicDBObject();
       whereQuery.put("_id", "city_id");
@@ -188,7 +188,7 @@ public class MongoDB_Databasemanagement implements IDatarepository {
     return -1;
   }
 
-  public int select_country_counter(){
+  private int select_country_counter(){
     try {
       BasicDBObject whereQuery = new BasicDBObject();
       whereQuery.put("_id", "country_id");
@@ -201,7 +201,7 @@ public class MongoDB_Databasemanagement implements IDatarepository {
     return -1;
   }
 
-  public void update_city_counter(int city_id){
+  private void update_city_counter(int city_id){
     try {
       BasicDBObject whereQuery = new BasicDBObject();
       whereQuery.put("_id", "city_id");
@@ -213,7 +213,7 @@ public class MongoDB_Databasemanagement implements IDatarepository {
     }
   }
 
-  public void update_country_counter(int country_id){
+  private void update_country_counter(int country_id){
     try {
       BasicDBObject whereQuery = new BasicDBObject();
       whereQuery.put("_id", "country_id");

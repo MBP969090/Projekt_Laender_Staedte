@@ -5,16 +5,16 @@ import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.util.List;
-import java.util.Map;
 
-
-public class GUI extends Application {
+public class GUI extends Application implements UI {
 
   private IBusiness_logic business_logic;
   private JFXPanel panel = new JFXPanel();

@@ -9,7 +9,7 @@ public class Database_class_factory {
 				program = new SQL_Databasemanagement();
 				break;
 			case "MongoDB_Databasemanagement":
-				//program = new MongoDB_Databasemanagement();
+				program = new MongoDB_Databasemanagement();
 				break;
 			case "Test_database":
 				program = new Test_database();
